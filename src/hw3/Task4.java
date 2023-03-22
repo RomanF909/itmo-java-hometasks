@@ -5,7 +5,7 @@ public class Task4 {
 
         Scanner taskScanner = new Scanner(System.in);
         System.out.println("Придумайте число от 2 до 100");
-        int a = (int) (4 + Math.random() * 101), b = 101, c = 2;
+        int a = (int) (2 + Math.random() * 101), b = 101, c = 1;
         System.out.println("Загаданное число равно " + a + "?");
         System.out.println("Введите ответ, 0 - НЕТ, 1 - ДА");
         int answer1 = taskScanner.nextInt();
