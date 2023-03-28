@@ -5,25 +5,27 @@ public class Task6 {
     public static void main(String[] args) {
 
         int n = 3;
-
         String[] mass = new String[n];
-
         Scanner taskScanner = new Scanner(System.in);
-        System.out.println("Введите слово");
-        String count = taskScanner. nextLine();
+        String count = "";
 
+        for (int i = 0; i < n; i++) {
 
-        for (int i = 1; i < n; i++) {
+            System.out.println("Введите слово");
+            count = taskScanner. nextLine();
 
-                    if (mass[i-1].equals("exit")) break;
-            else {
-                System.out.println("Введите слово");
-                count = taskScanner. nextLine();
-                if (mass.equals(count)) i--;
-                else mass[i] = count;
+            if ("exit".equals(count)) break;
+            boolean inArray = false;
+            for (int j = 0; j < n; j++) {
 
+                if (mass[j] != null && mass[j].equals(count)) {
+                    System.out.println("Слово содержится в массиве");
+                    i--;
+                    inArray = true;
+                    break;        }
             }
-
+            if (!inArray) {
+                mass[i] = count;    }
         }
         System.out.print(Arrays.toString(mass));
 
