@@ -48,8 +48,12 @@ public class Allow {
     }
 
    public void printRazr() {
+       System.out.println("Список разрешенных продуктов:");
+       for (int i = 0; i < 4; i++) {
+           if (razr[i] != null)
+           System.out.println(razr[i].name);
+       }
 
-        System.out.print(Arrays.toString(razr));
     }
 
 
