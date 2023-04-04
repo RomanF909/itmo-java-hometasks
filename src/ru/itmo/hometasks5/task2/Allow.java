@@ -11,13 +11,13 @@ public class Allow {
     private int fatMax = 50;
     private int carbMax = 100;
     private int indexA;
-    public Product[] razr = new Product[4];
+    private Product[] razr = new Product[4];
 
     public Allow() {
     }
 
     public void loadProd(Product prod) {
-        if (prod.name == null) {
+        if (prod.getName() == null) {
             System.out.println("В группу добавляются продукты");
             return;
         }
@@ -28,22 +28,22 @@ public class Allow {
         }
 
         if (proteinMax < prod.protein) {
-            System.out.println(prod.name + " слишком много белка");
+            System.out.println(prod.getName() + " слишком много белка");
             return;
         }
         if (fatMax < prod.fat) {
-            System.out.println(prod.name + " слишком много жира");
+            System.out.println(prod.getName() + " слишком много жира");
             return;
         }
 
         if (carbMax < prod.carb) {
-            System.out.println(prod.name + " слишком много углеводов");
+            System.out.println(prod.getName() + " слишком много углеводов");
             return;
         }
 
         razr[indexA] = prod;
         indexA++;
-        System.out.println(prod.name + " в списке разрешенных продуктов");
+        System.out.println(prod.getName() + " в списке разрешенных продуктов");
 
     }
 
@@ -51,7 +51,7 @@ public class Allow {
        System.out.println("Список разрешенных продуктов:");
        for (int i = 0; i < 4; i++) {
            if (razr[i] != null)
-           System.out.println(razr[i].name);
+           System.out.println(razr[i].getName());
        }
 
     }

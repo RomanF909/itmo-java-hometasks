@@ -1,7 +1,7 @@
 package ru.itmo.hometasks5.task2;
 
 public class Product {
-public String name;
+private String name;
 public int protein;
 public int fat;
 public int carb;
@@ -16,6 +16,9 @@ public int carb;
         this.fat = fat;
         this.carb = carb;
 
+    }
+    public String getName(){
+        return name;
     }
 
 
