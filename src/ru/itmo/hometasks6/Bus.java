@@ -1,24 +1,26 @@
 package ru.itmo.hometasks6;
 
-public final class Bus extends Transport{
+public class Bus extends Transport{
+    private final String color; // значение нельзя изменить
+    private boolean wifi;
 
-
-    public Bus(int number, int level, String color, String wifi) {
-        setNumber(number);
-        setLevel(level);
-        setColor(color);
-        if (wifi != "yes" || wifi != "no") {
-            throw new IllegalArgumentException("Exception: wifi - yes or no");
-        }
-        this.wifi = wifi;
+    public Bus(String number, String color) { // все автобусы разного цвета
+        super(number);
+        // необходима проверка входящих данных (color)
+        this.color = color;
     }
+
+    public String getColor() {
+        return color;
+    }
+
+    public boolean isWifi() {
+        return wifi;
+    }
+
     @Override
-    public final void setColor (String colorBus) {
-        this.color = colorBus;
+    public void repair() {
+        super.repair(); // снижает уровень износа
+        if (!wifi) wifi = true; // добавляет wifi, если его не было
     }
-
-
 }
-
-
-

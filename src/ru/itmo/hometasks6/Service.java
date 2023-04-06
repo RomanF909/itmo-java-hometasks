@@ -1,44 +1,41 @@
 package ru.itmo.hometasks6;
-
 public class Service {
-    public static void main(String[] args) {
+    private Transport[] transports;
+    private int transportIndex;
+    private String[] colors = {"blue", "green", "red", "yellow", "black", "white"};
 
+    public Service() {
+        transports = new Transport[3];
+    }
 
-        Train train01 = new Train(52, 10, "green", 23);
-        Train train02 = new Train(16, 15, "green", 34);
+    public void addTransport(Transport transport){ // добавление транспорта в мастерскую
+        // необходима проверка входящих данных (transport)
+        if (transportIndex == transports.length) {
+            System.out.println("В мастерской нет места для транспортного средства " + transport.getNumber());
+            return;
+        }
+        transports[transportIndex] = transport; // добавили транспорт в массив
+        transportIndex++;
+        System.out.println("Транспортное средство " + transport.getNumber() + " добавлено");
+    }
 
-        Bus bus01 = new Bus(26, 25, "red", "no");
-        Bus bus02 = new Bus(31, 46, "blue", "yes");
+    public void startRepair(){
+        for (int i = 0; i < transports.length; i++) {
+            if (transports[i] == null) continue;
 
-        Car car01 = new Car(76, 5, "yellow");
-        Car car02 = new Car(65, 12, "red");
+            transports[i].repair(); // ремонт транспортного средства
+            System.out.println("Транспортное средство " + transports[i].getNumber() + " отремонтировано");
 
-        Transport[] trts = {train01, train02, bus01, bus02, car01, car02};
-        String[] colors = {"red", "blue", "yellow", "green"};
-
-        for (Transport transport : trts) {
-
-            if (transport instanceof Train && ((Train) transport).level > 0) {
-
-                ((Train) transport).level--;
-                ((Train) transport).volume++;
-
-            }
-            if (transport instanceof Bus && ((Bus) transport).level > 0) {
-
-                ((Bus) transport).level--;
-                ((Bus) transport).wifi = "yes";
-
-            }
-            if (transport instanceof Car && ((Car) transport).level > 0) {
-
-                ((Car) transport).level--;
-                int a = (int) (0 + Math.random() * 5);
-                ((Car) transport).color = colors[a];
-
+            if (transports[i] instanceof RePaintAble) { // если транспортное средство можно перекрасить
+                int colorIndex = (int) (Math.random() *  colors.length); // случайный индекс
+                ((RePaintAble) transports[i]).changeColor(colors[colorIndex]); // приводим к нужному типу, вызываем метод
+                System.out.println("Транспортное средство " + transports[i].getNumber() + " перекрашено");
             }
 
-
+            System.out.println("Транспортное средство " + transports[i].getNumber() + " покидает сервис");
+            transports[i] = null;
+            transportIndex--;
         }
     }
+
 }

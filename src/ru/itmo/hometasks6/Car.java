@@ -1,16 +1,16 @@
 package ru.itmo.hometasks6;
+public class Car extends Transport implements RePaintAble{
+    private String color;
 
-
-public final class Car extends Transport {
-
-
-    public Car(int number, int level, String color) {
-        setNumber(number);
-        setLevel(level);
-        setColor(color);
+    public Car(String number, String color) { // все машины разного цвета
+        super(number);
+        // необходима проверка входящих данных (color)
+        this.color = color;
     }
 
-
+    @Override
+    public void changeColor(String newColor) {
+        // необходима проверка входящих данных (newColor)
+        this.color = newColor; // машина будет перекрашена
+    }
 }
-
-

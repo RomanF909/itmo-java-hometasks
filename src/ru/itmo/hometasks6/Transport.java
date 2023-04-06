@@ -1,45 +1,26 @@
 package ru.itmo.hometasks6;
+public class Transport {
+    private int wearLevel; // уровень износа
+    private String number; // номер
 
-public abstract class Transport {
-
-protected int level;
-protected int number;
-protected int volume;
-protected String color;
-protected String wifi;
-
-    public final void setNumber(int number) {
-        if (number == 0) {
-            throw new IllegalArgumentException("Exception: number = 0");
-        }
+    public Transport(String number) {
+        // необходима проверка входящих данных (number)
         this.number = number;
     }
 
-    public int getNumber(){
-        return level;
+    public void upWearLevel() {
+        wearLevel++;
     }
 
-    public void setLevel(int level) {
-        if (level < 0) {
-            throw new IllegalArgumentException("Exception: level < 0");
-        }
-        this.level = level;
+    public int getWearLevel() {
+        return wearLevel;
     }
 
-    public int getLevel(){
-        return level;
+    public String getNumber() {
+        return number;
     }
 
-    public void setColor(String color) {
-        if (color == null) {
-            throw new IllegalArgumentException("Exception: color = null");
-        }
-        this.color = color;
+    public void repair() { // ремонт транспортного средства
+        if (wearLevel > 0) wearLevel--; // снижает уровень износа
     }
-
-    public String getColor(){
-        return color;
-    }
-
-
 }
