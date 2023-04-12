@@ -6,6 +6,9 @@ public class Bus extends Transport{
 
     public Bus(String number, String color) { // все автобусы разного цвета
         super(number);
+        if (color == null) {
+            throw new IllegalArgumentException("Exception: color = null");
+        }
         // необходима проверка входящих данных (color)
         this.color = color;
     }

@@ -4,6 +4,7 @@ public class Transport {
     private String number; // номер
 
     public Transport(String number) {
+        if (number == null) { throw new IllegalArgumentException("Exception: namber = null");}
         // необходима проверка входящих данных (number)
         this.number = number;
     }

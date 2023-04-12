@@ -8,6 +8,9 @@ public class Train extends Transport{
 
     public Train(String number, int carCount) {
         super(number);
+        if (carCount <= 0) {
+            throw new IllegalArgumentException("Exception: carCount <= 0");
+        }
         // необходима проверка входящих данных (carCount)
         this.carCount = carCount;
     }
