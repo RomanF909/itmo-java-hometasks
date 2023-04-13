@@ -1,0 +1,35 @@
+interface Eatable extends Serializable{}
+  interface Runnable {}
+
+  class Animal implements Runnable{}
+
+  class Cat extends Animal implements Eatable{}
+  class Kitten extends Cat{}
+
+  class Dog extends Animal implements Serializable{}
+
+
+  class Task {
+     public static  <T extends Cat & Eatable> void void01(T object){
+         // ВОПРОС: методы каких типов можно вызвать у object ???
+         // ОТВЕТ: методы Cat, Animal и Eatable
+     }
+
+     public static  <T extends Animal & Serializable> void void02(T object){
+        // ВОПРОС: методы каких типов можно вызвать у object ???
+     }
+      // ОТВЕТ: методы Animal & Serializable
+
+     public static  <T extends Serializable & Runnable> void void03(T object){
+        // ВОПРОС: методы каких типов можно вызвать у object ???
+     }
+      // ОТВЕТ: методы Serializable & Runnable
+
+     public static void main(String[] args) {
+        Task.</* ВОПРОС: какие типы можно указать ??? */>void01(/* ВОПРОС: какие типы можно передать ??? */);
+        // ОТВЕТ:Cat                                                  ОТВЕТ:Cat
+        Task.</* ВОПРОС: какие типы можно указать ??? */>void02(/* ВОПРОС: какие типы можно передать ??? */);
+        // ОТВЕТ: Dog                                                   ОТВЕТ:Dog
+        Task.<Dog>void03(/* ВОПРОС: какие типы можно передать ??? */);
+       // ОТВЕТ: Dog
+     }
