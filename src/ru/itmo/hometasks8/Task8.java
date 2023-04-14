@@ -8,14 +8,14 @@ public class Task8 {
         container01.setValue("dfsdfgsd");
 
         //2
-        PairContainer<String, User> container02 = new PairContainer<>();
+        PairContainer<String, User<Integer>> container02 = new PairContainer<>();
         container02.setKey("hbjhbhb");
         User<Integer> oneUser = new User<>();
         oneUser.setId(6);
         container02.setValue(oneUser);
 
         //3
-        PairContainer<String, PairContainer> container03 = new PairContainer<>();
+        PairContainer<String, PairContainer<Integer, User<String>>> container03 = new PairContainer<>();
         container03.setKey("hjghhgdh");
         PairContainer<Integer, User<String>> cont = new PairContainer<>();
         User<String> twoUser = new User<>();

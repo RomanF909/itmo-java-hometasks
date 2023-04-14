@@ -27,9 +27,11 @@ interface Eatable extends Serializable{}
 
      public static void main(String[] args) {
         Task.</* ВОПРОС: какие типы можно указать ??? */>void01(/* ВОПРОС: какие типы можно передать ??? */);
-        // ОТВЕТ:Cat                                                  ОТВЕТ:Cat
+        // ОТВЕТ:Cat                                              ОТВЕТ:Cat,Kitten
+          // ОТВЕТ:Kitten                                         ОТВЕТ:Kitten
         Task.</* ВОПРОС: какие типы можно указать ??? */>void02(/* ВОПРОС: какие типы можно передать ??? */);
-        // ОТВЕТ: Dog                                                   ОТВЕТ:Dog
+       // ОТВЕТ:Cat                                               ОТВЕТ:Cat,Kitten
+        // ОТВЕТ: Dog                                                 ОТВЕТ:Dog
         Task.<Dog>void03(/* ВОПРОС: какие типы можно передать ??? */);
        // ОТВЕТ: Dog
      }
