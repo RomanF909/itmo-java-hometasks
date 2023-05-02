@@ -82,14 +82,6 @@ public class Task02 {
 
     //  3. написать метод, который выводит в консоль топ 10 самых часто встречаемых в тексте слов (артикли и предлоги тоже считаем за слова)
 
-    public HashMap<ArrayList<String>, Integer> getTop(ArrayList text02){
-
-        HashMap<String, Integer> taskTop = new HashMap<>();
-      //  taskTop.getWords(text02);
-
-        return null;
-
-    }
 
 
 
@@ -145,7 +137,9 @@ public class Task02 {
                 "uncover many web sites still uncover in their infancy Various versions uncover have evolved over the years uncover sometimes by accident" +
                 " sometimes on purpose injected humour and the like";
         String[] text01 = text.split("\\W+");
-        ArrayList<String> text02 = new ArrayList<>(Arrays.asList(text01));
+
+
+
 
 
 

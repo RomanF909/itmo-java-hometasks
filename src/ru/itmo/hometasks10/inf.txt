@@ -1,0 +1,33 @@
+ private static void task0303(String text) {
+        Map<String, Integer> map = getWords(Arrays.asList(text.split(" ")));
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+
+       /* class ValueComparator implements Comparator<Map.Entry<String, Integer>> {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2){
+                // из локального класса есть доступ к локальным переменным метода
+                // локальные переменные доступны только для чтения
+            return  o2.getValue() - o1.getValue();
+           }
+        }
+        list.sort(new ValueComparator());
+
+        */
+        // создание анонимного класса
+        // =new интерфейс(в данном случае Компаратор), методы должны быть переопределены
+        Comparator<Map.Entry<String, Integer>> valueComparator = new Comparator<Map.Entry<String, Integer>>() {
+            @Override
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return  o2.getValue() - o1.getValue();
+            }
+        };
+        list.sort(valueComparator);
+
+        int count = Math.min(10, list.size());
+        for (int i = 0; i < count; i++) {
+            System.out.println(list.get(i).getKey() + "=" + list.get(i).getValue());
+
+        }
+    }
+         //   static class ValueComparator implements Comparator<Map.Entry<String, Integer>> {}
+
