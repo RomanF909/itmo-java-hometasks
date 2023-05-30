@@ -37,7 +37,6 @@ public class Game {
                     break;
                 case (4):
                     userNew.exitGame();
-                    gameNew.menu();
                     break;
                 default:
                     System.out.println("Введено ошибочное значение");
