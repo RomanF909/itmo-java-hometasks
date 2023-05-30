@@ -41,8 +41,8 @@ public class Game {
                 default:
                     System.out.println("Введено ошибочное значение");
                     break;
+
             }
         }
-
     }
 }

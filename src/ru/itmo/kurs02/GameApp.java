@@ -61,6 +61,7 @@ public class GameApp {
                     if (change2 == 2) break;
                 }
     };
+
     void load(){
         System.out.println("Игра загружена");
         while (true){
@@ -93,7 +94,9 @@ public class GameApp {
             if (change2 == 2) break;
         }
     };
+
     void save(){System.out.println("Игра сохранена");};
+
     void exit(){System.out.println("Выход из игры");};
 
     public int getI() {return i;}
